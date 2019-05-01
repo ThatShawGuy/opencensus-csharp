@@ -13,9 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 // </copyright>
-
 namespace OpenCensus.Trace
 {
+    using NLog;
+
     /// <summary>
     /// A class that represents a span context. A span context contains the state that must propagate to
     /// child <see cref="SpanBase"/> and across process boundaries. It contains the identifiers <see cref="TraceId"/>
@@ -31,6 +32,9 @@ namespace OpenCensus.Trace
             this.SpanId = spanId;
             this.TraceOptions = traceOptions;
             this.Tracestate = tracestate;
+
+            MappedDiagnosticsLogicalContext.Set("TraceId", this.TraceId.ToLowerBase16());
+            MappedDiagnosticsLogicalContext.Set("SpanId", this.SpanId.ToLowerBase16());
         }
 
         public ITraceId TraceId { get; }

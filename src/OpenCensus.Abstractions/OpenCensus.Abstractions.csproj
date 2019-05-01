@@ -21,6 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="NLog" Version="4.6.3" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.1-beta.61">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
